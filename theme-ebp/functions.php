@@ -215,7 +215,7 @@ function wpCustomStyleSheet()
 	wp_enqueue_style('custom-css');
 	wp_enqueue_script('main-js');
 }
-add_action('enqueue_block_assets', 'wpCustomStyleSheet');
+add_action('enqueue_block_editor_assets', 'wpCustomStyleSheet');
 
 add_filter('wpcf7_form_elements', function ($content) {
 	$content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
