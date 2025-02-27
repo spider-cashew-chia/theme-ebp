@@ -196,21 +196,14 @@ add_action('init', 'tt3child_register_acf_blocks');
 function wpCustomStyleSheet()
 {
 	//first register sthe style sheet and then enqueue
-	wp_register_style('aos-css', get_bloginfo('stylesheet_directory') . '/assets/css/aos.css', false, '1.0.0');
-	wp_register_style('bootstrap-css', get_bloginfo('stylesheet_directory') . '/assets/css/bootstrap.min.css', false, '1.0.0');
 	wp_register_style('fontawesome-css', get_bloginfo('stylesheet_directory') . '/assets/css/fontawesome.min.css', false, '1.0.0');
-	wp_register_style('lightgallery-css', get_bloginfo('stylesheet_directory') . '/assets/css/lightgallery.min.css', false, '1.0.0');
-	wp_register_style('style-css', get_bloginfo('stylesheet_directory') . '/assets/css/style.css', false, '1.0.0');
 	wp_register_style('swiper-css', get_bloginfo('stylesheet_directory') . '/assets/css/swiper.min.css', false, '1.0.0');
 	wp_register_style('custom-css', get_bloginfo('stylesheet_directory') . '/assets/css/custom.css', false, '1.0.0');
 	wp_register_script('main-js', get_bloginfo('stylesheet_directory') . '/assets/js/main.js', false, '1.0.0');
 
 	// enqueue
-	wp_enqueue_style('aos-css');
-	wp_enqueue_style('bootstrap-css');
+	
 	wp_enqueue_style('fontawesome-css');
-	wp_enqueue_style('lightgallery-css');
-	wp_enqueue_style('style-css');
 	wp_enqueue_style('swiper-css');
 	wp_enqueue_style('custom-css');
 	wp_enqueue_script('main-js');
