@@ -142,10 +142,19 @@ add_action('widgets_init', 'theme_ebp_widgets_init');
  */
 function theme_ebp_scripts()
 {
+	// Enqueue theme stylesheet
 	wp_enqueue_style('theme-ebp-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('theme-ebp-style', 'rtl', 'replace');
 
+	// Enqueue additional styles
+	wp_enqueue_style('fontawesome-css', get_bloginfo('stylesheet_directory') . '/assets/css/fontawesome.min.css', array(), '1.0.0');
+	wp_enqueue_style('swiper-css', get_bloginfo('stylesheet_directory') . '/assets/css/swiper.min.css', array(), '1.0.0');
+	wp_enqueue_style('theme-css', get_bloginfo('stylesheet_directory') . '/assets/css/theme.css', array(), '1.0.0');
+	wp_enqueue_style('custom-css', get_bloginfo('stylesheet_directory') . '/assets/css/custom.css', array(), '1.0.0');
+
+	// Enqueue scripts
 	wp_enqueue_script('theme-ebp-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('main-js', get_bloginfo('stylesheet_directory') . '/assets/js/main.js', array(), '1.0.0', true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -198,6 +207,7 @@ function wpCustomStyleSheet()
 	//first register sthe style sheet and then enqueue
 	wp_register_style('fontawesome-css', get_bloginfo('stylesheet_directory') . '/assets/css/fontawesome.min.css', false, '1.0.0');
 	wp_register_style('swiper-css', get_bloginfo('stylesheet_directory') . '/assets/css/swiper.min.css', false, '1.0.0');
+	wp_register_style('theme-css', get_bloginfo('stylesheet_directory') . '/assets/css/theme.css', false, '1.0.0');
 	wp_register_style('custom-css', get_bloginfo('stylesheet_directory') . '/assets/css/custom.css', false, '1.0.0');
 	wp_register_script('main-js', get_bloginfo('stylesheet_directory') . '/assets/js/main.js', false, '1.0.0');
 
@@ -205,6 +215,7 @@ function wpCustomStyleSheet()
 	
 	wp_enqueue_style('fontawesome-css');
 	wp_enqueue_style('swiper-css');
+	wp_enqueue_style('theme-css');
 	wp_enqueue_style('custom-css');
 	wp_enqueue_script('main-js');
 }
